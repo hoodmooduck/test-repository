@@ -16,7 +16,7 @@ function Compose() {
     useEffect(()=>{
         const helper = getCatigories()
         helper(dispatch)
-        navigate('/category/14')
+        // navigate('/category/14')
     }, [])
 
     const openModal = (): void => {
