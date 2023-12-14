@@ -5,12 +5,12 @@ import { useAppDispatch } from '../../store/hooks.ts'
 import { useEffect, useState } from 'react'
 import ProductList from '../productsList/ProductList.tsx'
 import ProductInfoModal from '../productInfoModal/ProductInfoModal.tsx'
-import { useNavigate } from "react-router-dom"
+// import { useNavigate } from "react-router-dom"
 
 
 function Compose() {
     const dispatch = useAppDispatch()
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
     const [modal, setModal] = useState<boolean>(false)
 
     useEffect(()=>{
