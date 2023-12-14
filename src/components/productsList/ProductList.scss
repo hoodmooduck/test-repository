@@ -1,0 +1,14 @@
+.productList{
+    top: 60px;
+    padding: 37px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 37px;
+    overflow-y: scroll;
+    &::-webkit-scrollbar{
+        position: absolute;
+        width: 0px;
+        height: 0px;
+    }
+}
