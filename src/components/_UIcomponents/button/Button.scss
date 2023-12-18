@@ -1,0 +1,31 @@
+.button{
+    padding: 8px 20px;
+    border-radius: 5px;
+    background: var(--pink);
+    color: #FFF;
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: fit-content;    
+}
+
+.cardProduct-button{
+    @extend .button;
+}
+
+.cardProduct-button__inbasket{
+    &::after{
+        content: '';
+        background: url(../../../assets/images/check.svg) no-repeat;
+        background-size: 100% 100%;
+        display: block;
+        width: 20px;
+        height: 20px;
+        margin-left: 10px;
+    }
+    display: flex;
+    @extend .button;
+}
+

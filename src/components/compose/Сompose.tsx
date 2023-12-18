@@ -5,18 +5,20 @@ import { useAppDispatch } from '../../store/hooks.ts'
 import { useEffect, useState } from 'react'
 import ProductList from '../productsList/ProductList.tsx'
 import ProductInfoModal from '../productInfoModal/ProductInfoModal.tsx'
-// import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import Basket from '../basket/Basket.tsx'
 
 
 function Compose() {
     const dispatch = useAppDispatch()
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
     const [modal, setModal] = useState<boolean>(false)
+    const [basket, setBasket] = useState<boolean>(false)
 
     useEffect(()=>{
         const helper = getCatigories()
         helper(dispatch)
-        // navigate('/category/14')
+        navigate('/category/14')
     }, [])
 
     const openModal = (): void => {
@@ -26,14 +28,22 @@ function Compose() {
     const closeModal = (): void => {
         setModal(false)
     }
+    const openBasket = (): void => {
+        setBasket(true)
+    }
+
+    const closeBasket = (): void => {
+        setBasket(false)
+    }
 
 
     return(
         <>
-            <Header></Header>
-            <Sidebar></Sidebar>
-            <ProductList openModal={openModal}></ProductList>
-            <ProductInfoModal closeModal={closeModal} stateModal={modal}></ProductInfoModal>
+            <Header openBasket={openBasket} />
+            <Sidebar />
+            <ProductList openModal={openModal} />
+            <ProductInfoModal closeModal={closeModal} stateModal={modal} />
+            <Basket stateBasket={basket} closeBasket={closeBasket} />
         </>
 
     )

@@ -2,7 +2,7 @@ import { useAppDispatch, useAppSelector } from "../../store/hooks"
 import './ProductList.scss'
 import CardProduct from "../_UIcomponents/cardProduct/CardProduct"
 import { useParams } from "react-router"
-import { addModalState } from '../../store/slice'
+import { addModalState, addProductBasket } from '../../store/slice'
 import { DataType } from "../../store/types"
 
 type ProductListProps = {
@@ -19,11 +19,14 @@ function ProductList({openModal} : ProductListProps) {
         dispatch(addModalState(item))
         openModal()
     }
+    const addProductToBasket = (item: DataType): void =>{
+        dispatch(addProductBasket(item))
+    }
 
     return(
         <main className="productList">
             {products.map(el => (
-                <CardProduct onClick={() => selectItemProduct(el)} key={el.id} props={el} />
+                <CardProduct addProductToBasket={() => addProductToBasket(el)}  openInfo={() => selectItemProduct(el)} key={el.id} props={el} />
             ))}
         </main>
     )

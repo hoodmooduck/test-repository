@@ -4,8 +4,13 @@ import {NavLink} from 'react-router-dom'
 import './Header.scss'
 import { useAppSelector } from '../../store/hooks'
 
-function Header() {
+type HeaderProps = {
+    openBasket: () => void
+}
+
+function Header({openBasket}: HeaderProps) {
     const headerLinks = useAppSelector((state) => state.slice.headerLinks)
+    const countProductBasket = useAppSelector((state) => state.slice.basketState).length
     return(
         <header className="header">
             <figure className="header-logo">
@@ -16,9 +21,9 @@ function Header() {
                     <NavLink key={idx} className={({isActive}) => isActive ? 'header-link__active':'header-link'} to={`/category/${el.id}`}>{el.name}</NavLink>
                 ))}
             </nav>
-            <figure className="header-basket">
+            <figure onClick={openBasket} className="header-basket">
                 <img src={Basket} alt="basket" />
-                <figcaption className='header-basket__count'>0</figcaption>
+                <figcaption className='header-basket__count'>{countProductBasket}</figcaption>
             </figure>
         </header>
     )

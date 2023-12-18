@@ -7,6 +7,7 @@ const initialState : InitialState = {
     products: [],
     loading: false,
     modalState: null,
+    basketState: []
 }
 
 const slice = createSlice({
@@ -15,6 +16,9 @@ const slice = createSlice({
     reducers: {
         addModalState: (state, action: PayloadAction<DataType>) => {
             state.modalState = action.payload
+        },
+        addProductBasket: (state, action: PayloadAction<DataType>) => {
+            state.basketState.push(action.payload)
         },
         isLoading: (state, action: PayloadAction<boolean>) => {
             state.loading = action.payload
@@ -31,6 +35,6 @@ const slice = createSlice({
     },
 })
 
-export const { isLoading, getHeaderLinks, getSidebarLinks, getProducts, addModalState } = slice.actions
+export const { isLoading, getHeaderLinks, getSidebarLinks, getProducts, addModalState, addProductBasket } = slice.actions
 
 export default slice.reducer

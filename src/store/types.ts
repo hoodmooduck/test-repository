@@ -3,11 +3,13 @@ export interface InitialState {
     sidebarLinks: DataType[],
     products: DataType[],
     loading: LoadingType
-    modalState: ModalStateType
+    modalState: ModalStateType,
+    basketState: BasketStateType
 }
 
 type LoadingType = boolean
 type ModalStateType = DataType | null
+type BasketStateType = DataType[]
 
 export type DataType = {
     id: number,
