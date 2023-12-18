@@ -7,6 +7,7 @@ import ProductList from '../productsList/ProductList.tsx'
 import ProductInfoModal from '../productInfoModal/ProductInfoModal.tsx'
 import { useNavigate } from "react-router-dom"
 import Basket from '../basket/Basket.tsx'
+import Modal from '../_UIcomponents/modal/modal.tsx'
 
 
 function Compose() {
@@ -39,11 +40,18 @@ function Compose() {
 
     return(
         <>
-            <Header openBasket={openBasket} />
+            <Header openBasket={openBasket} openModal={openModal}  />
             <Sidebar />
             <ProductList openModal={openModal} />
-            <ProductInfoModal closeModal={closeModal} stateModal={modal} />
-            <Basket stateBasket={basket} closeBasket={closeBasket} />
+            <Modal modalState={modal} closeModal={closeModal} closeBasket={closeBasket}>
+                {
+                    !basket ?  
+                    <ProductInfoModal stateModal={modal} />
+                    : 
+                    <Basket stateBasket={basket}/> 
+                }
+            </Modal>
+            
         </>
 
     )

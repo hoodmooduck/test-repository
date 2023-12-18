@@ -1,23 +1,19 @@
 import './ProductInfoModal.scss'
-import Close from '../../assets/images/close.svg'
 import ModalInfoList from './modalInfoLists/ModalInfoList';
 import { useAppSelector } from '../../store/hooks';
 
 type ModalProps = {
-    closeModal: () => void, 
     stateModal: boolean
 }
 
-function ProductInfoModal({closeModal, stateModal} : ModalProps) {
+function ProductInfoModal({ stateModal} : ModalProps) {
     const product = useAppSelector((state) => state.slice.modalState)
 
     return (
         stateModal &&
         <section className="productInfoModal">
             <div className="productInfoModal-compose">
-                <figure className="productInfoModal-closeBtn">
-                    <img onClick={closeModal} src={Close} alt="" />
-                </figure>
+
                 <h2 className="productInfoModal-title">Информация</h2>
                 <article className="productInfoModal-column">
                     <figure className="productInfoModal-img">

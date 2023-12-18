@@ -1,23 +1,18 @@
 import { useAppSelector } from '../../store/hooks'
-import closeIcon from '../../assets/images/close.svg'
 import basket from '../../assets/images/basket.svg'
 import './Basket.scss'
 import BasketList from './basketList/BasketList'
 
 type BasketProps= {
     stateBasket: boolean,
-    closeBasket: () => void
 }
 
-function Basket({stateBasket,closeBasket}: BasketProps) {
+function Basket({stateBasket}: BasketProps) {
     const basketProducts = useAppSelector((state) => state.slice.basketState)
 
     return (
         stateBasket && 
         <aside className="basket">
-            <figure onClick={closeBasket} className="basket-close">
-                <img src={closeIcon} alt="close" />
-            </figure>
             <h2 className="basket-title">Оформить заказ</h2>
             {
             basketProducts.length !== 0 ? <BasketList /> : 

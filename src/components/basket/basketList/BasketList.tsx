@@ -1,5 +1,6 @@
 import { useAppSelector } from "../../../store/hooks"
-import BasketCard from "../basketCard/BasketCard"
+import CardProductBasket from "../../_UIcomponents/cardProductBasket/cardProductBasket"
+
 
 
 function BasketList() {
@@ -13,7 +14,7 @@ function BasketList() {
         <div className="basket-list">
              <h3 className="basket-subtitle">В корзине:</h3>
             {basketProducts.map((el,idx)=>(
-                <BasketCard key={idx} props={el} deleteInBasket={deleteInBasket} />
+                <CardProductBasket key={idx} props={el} deleteInBasket={deleteInBasket} />
             ))}
         </div>
     )
