@@ -1,6 +1,6 @@
 import './ProductInfoModal.scss'
 import ModalInfoList from './modalInfoLists/ModalInfoList';
-import { useAppSelector } from '../../store/hooks';
+import { useAppSelector } from '../../../store/hooks';
 
 type ModalProps = {
     stateModal: boolean

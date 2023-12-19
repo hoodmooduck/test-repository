@@ -4,7 +4,7 @@ import { getCatigories } from '../../store/api.ts'
 import { useAppDispatch } from '../../store/hooks.ts'
 import { useEffect, useState } from 'react'
 import ProductList from '../productsList/ProductList.tsx'
-import ProductInfoModal from '../productInfoModal/ProductInfoModal.tsx'
+import ProductInfoModal from '../_UIcomponents/productInfoModal/ProductInfoModal.tsx'
 import { useNavigate } from "react-router-dom"
 import Basket from '../basket/Basket.tsx'
 import Modal from '../_UIcomponents/modal/modal.tsx'

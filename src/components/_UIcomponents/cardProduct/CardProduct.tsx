@@ -6,12 +6,12 @@ import ImageLoader from '../imageLoader/ImageLoader'
 
 interface propsProductCard {
     props: DataType,
+    inBasket: () => boolean,
     openInfo: () => void,
     addProductToBasket: () => void,
 }
 
-function CardProduct({props, openInfo, addProductToBasket} : propsProductCard) {
-    const [inBasket, setInBasket] = useState<boolean>(false)
+function CardProduct({props, openInfo, addProductToBasket, inBasket} : propsProductCard) {
     const [isImageLoaded, setIsImageLoaded] = useState(false);
 
     const imageLoading = () => {
@@ -19,8 +19,7 @@ function CardProduct({props, openInfo, addProductToBasket} : propsProductCard) {
     };
 
     const addToBasket = () => {
-        if(inBasket) return
-        setInBasket((val) => !val)
+        if(inBasket()) return
         addProductToBasket()
     }
 
@@ -33,7 +32,7 @@ function CardProduct({props, openInfo, addProductToBasket} : propsProductCard) {
             <div className="cardProduct-info">
                 <h2 onClick={openInfo} className="cardProduct-title">{props.name}</h2>
                 <p className="cardProduct-price">{props.price+' ₽'}</p>
-                <Button onClick={addToBasket} stateButton={inBasket}></Button>
+                <Button onClick={addToBasket} stateButton={inBasket()}></Button>
             </div>
         </article>
     )

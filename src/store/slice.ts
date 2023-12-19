@@ -17,8 +17,8 @@ const slice = createSlice({
         addModalState: (state, action: PayloadAction<DataType>) => {
             state.modalState = action.payload
         },
-        addProductBasket: (state, action: PayloadAction<DataType>) => {
-            state.basketState.push(action.payload)
+        changeProductBasket: (state, action: PayloadAction<DataType[]>) => {
+            state.basketState = action.payload
         },
         isLoading: (state, action: PayloadAction<boolean>) => {
             state.loading = action.payload
@@ -35,6 +35,6 @@ const slice = createSlice({
     },
 })
 
-export const { isLoading, getHeaderLinks, getSidebarLinks, getProducts, addModalState, addProductBasket } = slice.actions
+export const { isLoading, getHeaderLinks, getSidebarLinks, getProducts, addModalState, changeProductBasket } = slice.actions
 
 export default slice.reducer
