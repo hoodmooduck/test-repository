@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { list } from "../index";
-import { DataType } from "../../../store/types";
+import { DataType } from "../../../../store/types";
 import ModalInfoText from "../modalInfoText/modalInfoText";
 
 type ModalInfoListProps = {
@@ -14,7 +14,6 @@ function ModalInfoList({productInfo} : ModalInfoListProps) {
     const setSlide = (id: number) : void => {
         setActiveSlide(id)
     }
-    console.log(productInfo);
     
     return(
         <div className="productInfoModal-list">

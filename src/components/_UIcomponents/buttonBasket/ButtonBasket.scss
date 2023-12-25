@@ -1,0 +1,18 @@
+
+.basket-button{
+    padding: 8px 50px;
+    border-radius: 5px;
+    background: var(--pink);
+    color: #FFF;
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: fit-content;    
+    display: flex;
+    &:hover{
+        cursor: pointer;
+    }
+}
+

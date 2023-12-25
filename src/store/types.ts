@@ -5,6 +5,7 @@ export interface InitialState {
     loading: LoadingType
     modalState: ModalStateType,
     basketState: BasketStateType
+    orderState: boolean
 }
 
 type LoadingType = boolean
@@ -17,14 +18,14 @@ export type DataType = {
     name: string,
     img: string,
     price?: number,
-    props?: DataTypeProps[],
+    props?: DataTypeProps,
     reviews?: ReviewsType[],
 }
 
 export type DataTypeProps = {
     width: DataTypePropsElements,
     height: DataTypePropsElements,
-    lenght: DataTypePropsElements,
+    length: DataTypePropsElements,
 }
 
 export type DataTypePropsElements = {
